@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>739936572442-6va33ttfu81agpasdqo8cg6jdf1q200v.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.739936572442-6va33ttfu81agpasdqo8cg6jdf1q200v</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAvLb5Qbec0N6VVUDsep6mCFpQesA1ck1w</string>
+	<key>GCM_SENDER_ID</key>
+	<string>739936572442</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>JAY.LetsSeeAShow</string>
+	<key>PROJECT_ID</key>
+	<string>letsseeashow-783a1</string>
+	<key>STORAGE_BUCKET</key>
+	<string>letsseeashow-783a1.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:739936572442:ios:b3a43d1a7592a2e1526da3</string>
+	<key>DATABASE_URL</key>
+	<string>https://letsseeashow-783a1.firebaseio.com</string>
+</dict>
+</plist>
