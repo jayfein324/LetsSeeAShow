@@ -5,10 +5,9 @@ target 'LetsSeeAShow' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for LetsSeeAShow
-
-pod 'Firebase/Core'
-pod 'FirebaseUI/Email'
+  # Pods for LetsSeeAShow\    
+    pod 'Firebase/Core'
+    pod 'FirebaseUI/Email'
 
   target 'LetsSeeAShowTests' do
     inherit! :search_paths

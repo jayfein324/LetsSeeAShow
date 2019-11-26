@@ -1,6 +1,0 @@
-framework module Pods_LetsSeeAShowTests {
-  umbrella header "Pods-LetsSeeAShowTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

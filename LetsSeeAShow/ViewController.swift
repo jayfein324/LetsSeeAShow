@@ -16,6 +16,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+
     @IBAction func loginTapped(_ sender: Any) {
         // Get the default Auth UI Object
         let authUI = FUIAuth.defaultAuthUI()
@@ -37,6 +38,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {}
+    
     }
 
 extension ViewController: FUIAuthDelegate {
@@ -52,6 +54,6 @@ extension ViewController: FUIAuthDelegate {
         }
         //authDataResult?.user.uid
         performSegue(withIdentifier: "goHome", sender: self)
-        
-    }
+
+}
 }
