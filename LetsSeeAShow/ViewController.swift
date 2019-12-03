@@ -10,13 +10,6 @@ import UIKit
 import FirebaseUI
 import Firebase
 
-struct User {
-    let name : String
-    let email : String
-    let age : Int?
-    let details : String?
-}
-
 class ViewController: UIViewController {
     
     // Create empty array of users
@@ -25,28 +18,24 @@ class ViewController: UIViewController {
     // Get a reference to the database
     var ref : DatabaseReference!
     
-    @IBOutlet weak var homeImage: UIImageView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.homeImage.layer.cornerRadius = 200
-        self.homeImage.clipsToBounds = true
-        // Do any additional setup after loading the view.
         
         ref = Database.database().reference()
-        
-        // Start observing all changes in the database
+        // Do any additional setup after loading the view.
+        // Updates the users
         ref.child("users").observe(.value) { snapshot in
             var newUsers = [User]()
             if let userDicts = snapshot.value as? [String: [String : Any]] {
                 for eachUser in userDicts {
                     let dictValue = eachUser.value
-                    if let name = dictValue["name"] as? String, let email = dictValue["email"] as? String {
-                        newUsers.append(User(name: name, email: email, age: nil, details: nil))
+                    if let name = dictValue["name"] as? String, let email = dictValue["email"] as? String, let age = dictValue["age"] as? Int, let details = dictValue["details"] as? String, let id = eachUser.key as? String {
+                        newUsers.append(User(name: name, email: email, age: age, details: details, id: id))
                     }
                 }
             }
             self.users = newUsers
+            dump(self.users)
         }
     }
     
@@ -70,16 +59,19 @@ class ViewController: UIViewController {
         present(authViewController!, animated: true, completion: nil)
     }
     
+    // Creates a new user and updates the database
     func createUser(name : String, email : String) {
-        let newUserRef = ref.child("users").childByAutoId()
+        let id = Auth.auth().currentUser?.uid
         
-        let id = newUserRef.key ?? ""
+        let newUserRef = ref.child("users").child(id!)
         
+        // I give the users a default age and details, which will be changed in the details screen
         let newUserDictionary: [String : Any] = [
             "name" : name,
             "email" : email,
+            "id" : id!,
             "age" : 0,
-            "details" : "",
+            "details" : ""
         ]
         
         newUserRef.setValue(newUserDictionary)
@@ -94,6 +86,9 @@ class ViewController: UIViewController {
             }
         }
         return userExists
+    }
+    
+    func updateUsers() {
     }
     
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {}
@@ -120,5 +115,4 @@ extension ViewController: FUIAuthDelegate {
         }
      
 }
-    
 }

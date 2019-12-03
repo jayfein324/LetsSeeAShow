@@ -3,13 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		B9B05516EFFD98DFCF2F662D /* Pods_LetsSeeAShow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DC65477F1F493E07E2B265 /* Pods_LetsSeeAShow.framework */; };
 		C52E8628E49E082A2EE81DE6 /* Pods_LetsSeeAShow_LetsSeeAShowUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4492A0AF299F0093FA23620F /* Pods_LetsSeeAShow_LetsSeeAShowUITests.framework */; };
 		F2A21B47051FC4181B75FBEE /* Pods_LetsSeeAShowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB40EF065FC0F329544ECFB /* Pods_LetsSeeAShowTests.framework */; };
+		F80A543E2395DC3F008BFC2B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A543D2395DC3F008BFC2B /* DetailViewController.swift */; };
+		F80A54402395E1DA008BFC2B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A543F2395E1DA008BFC2B /* User.swift */; };
 		F8A1F617238DCFAD00F8C79C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A1F616238DCFAD00F8C79C /* AppDelegate.swift */; };
 		F8A1F619238DCFAD00F8C79C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A1F618238DCFAD00F8C79C /* ViewController.swift */; };
 		F8A1F61C238DCFAD00F8C79C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8A1F61A238DCFAD00F8C79C /* Main.storyboard */; };
@@ -49,6 +51,8 @@
 		7F4CD3AE03A8C46F6C6C7EA7 /* Pods-LetsSeeAShow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsSeeAShow.debug.xcconfig"; path = "Target Support Files/Pods-LetsSeeAShow/Pods-LetsSeeAShow.debug.xcconfig"; sourceTree = "<group>"; };
 		D2E0DB53951D9B37F0EE8B9C /* Pods-LetsSeeAShow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsSeeAShow.release.xcconfig"; path = "Target Support Files/Pods-LetsSeeAShow/Pods-LetsSeeAShow.release.xcconfig"; sourceTree = "<group>"; };
 		EFB40EF065FC0F329544ECFB /* Pods_LetsSeeAShowTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsSeeAShowTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F80A543D2395DC3F008BFC2B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F80A543F2395E1DA008BFC2B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F8A1F613238DCFAD00F8C79C /* LetsSeeAShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsSeeAShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A1F616238DCFAD00F8C79C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8A1F618238DCFAD00F8C79C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,7 +107,6 @@
 				6381BDA3E3761647B5D80C2F /* Pods-LetsSeeAShowTests.debug.xcconfig */,
 				3DA03CD72CC7F3B580D2E0FD /* Pods-LetsSeeAShowTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -144,7 +147,9 @@
 			children = (
 				F8A1F616238DCFAD00F8C79C /* AppDelegate.swift */,
 				F8A1F618238DCFAD00F8C79C /* ViewController.swift */,
+				F80A543F2395E1DA008BFC2B /* User.swift */,
 				F8A1F61A238DCFAD00F8C79C /* Main.storyboard */,
+				F80A543D2395DC3F008BFC2B /* DetailViewController.swift */,
 				F8A1F61D238DCFAE00F8C79C /* Assets.xcassets */,
 				F8A1F61F238DCFAE00F8C79C /* LaunchScreen.storyboard */,
 				F8A1F622238DCFAE00F8C79C /* Info.plist */,
@@ -449,6 +454,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F80A54402395E1DA008BFC2B /* User.swift in Sources */,
+				F80A543E2395DC3F008BFC2B /* DetailViewController.swift in Sources */,
 				F8A1F619238DCFAD00F8C79C /* ViewController.swift in Sources */,
 				F8A1F617238DCFAD00F8C79C /* AppDelegate.swift in Sources */,
 			);
