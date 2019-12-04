@@ -30,12 +30,11 @@ class ViewController: UIViewController {
                 for eachUser in userDicts {
                     let dictValue = eachUser.value
                     if let name = dictValue["name"] as? String, let email = dictValue["email"] as? String, let age = dictValue["age"] as? Int, let details = dictValue["details"] as? String, let id = eachUser.key as? String {
-                        newUsers.append(User(name: name, email: email, age: age, details: details, id: id))
+                        newUsers.append(User(name: name, email: email, id: id, details: details, age: age))
                     }
                 }
             }
             self.users = newUsers
-            dump(self.users)
         }
     }
     
@@ -86,9 +85,6 @@ class ViewController: UIViewController {
             }
         }
         return userExists
-    }
-    
-    func updateUsers() {
     }
     
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {}
