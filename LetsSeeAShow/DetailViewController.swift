@@ -16,12 +16,14 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var age: UITextField!
     @IBOutlet weak var details: UITextField!
+    @IBOutlet weak var number: UITextField!
     
     @IBAction func savePressed(_ sender: Any) {
-        if !details.text!.isEmpty && !age.text!.isEmpty {
+        if !details.text!.isEmpty && !age.text!.isEmpty && !number.text!.isEmpty {
             if let ageNum = Int(age.text!) {
                 updateAge(withAge : ageNum)
                 updateDetails(withDetails : details.text!)
+                updatePhone(withNumber : number.text!)
                 performSegue(withIdentifier: "goMainScreen", sender: self)
             } else {
                 let alert = UIAlertController(title: "Invalid Age", message: "Please Enter a Valid Age", preferredStyle: .alert)
@@ -44,5 +46,11 @@ class DetailViewController: UIViewController {
         let userToUpdateRef = ref.child("users").child(Auth.auth().currentUser!.uid).child("details")
         userToUpdateRef.setValue(details)
     }
+    
+    func updatePhone(withNumber num : String) {
+        let userToUpdateRef = ref.child("users").child(Auth.auth().currentUser!.uid).child("number")
+        userToUpdateRef.setValue(num)
+    }
+    
 }
 

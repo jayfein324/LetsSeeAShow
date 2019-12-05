@@ -15,6 +15,7 @@
 		F80A54442396EF64008BFC2B /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A54432396EF64008BFC2B /* HomeTableViewController.swift */; };
 		F80A54482397221A008BFC2B /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A54472397221A008BFC2B /* EventCell.swift */; };
 		F80A544C23972BFF008BFC2B /* EventDataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A544B23972BFF008BFC2B /* EventDataStructs.swift */; };
+		F828706723982D1E005FE9B2 /* ConcertDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F828706623982D1E005FE9B2 /* ConcertDetails.swift */; };
 		F8A1F617238DCFAD00F8C79C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A1F616238DCFAD00F8C79C /* AppDelegate.swift */; };
 		F8A1F619238DCFAD00F8C79C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A1F618238DCFAD00F8C79C /* ViewController.swift */; };
 		F8A1F61C238DCFAD00F8C79C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8A1F61A238DCFAD00F8C79C /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 		F80A54432396EF64008BFC2B /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		F80A54472397221A008BFC2B /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		F80A544B23972BFF008BFC2B /* EventDataStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDataStructs.swift; sourceTree = "<group>"; };
+		F828706623982D1E005FE9B2 /* ConcertDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertDetails.swift; sourceTree = "<group>"; };
 		F8A1F613238DCFAD00F8C79C /* LetsSeeAShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsSeeAShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A1F616238DCFAD00F8C79C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8A1F618238DCFAD00F8C79C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				F8A1F618238DCFAD00F8C79C /* ViewController.swift */,
 				F80A5441239633AA008BFC2B /* User.swift */,
 				F8A1F61A238DCFAD00F8C79C /* Main.storyboard */,
+				F828706623982D1E005FE9B2 /* ConcertDetails.swift */,
 				F80A54472397221A008BFC2B /* EventCell.swift */,
 				F80A544B23972BFF008BFC2B /* EventDataStructs.swift */,
 				F80A54432396EF64008BFC2B /* HomeTableViewController.swift */,
@@ -466,6 +469,7 @@
 				F80A5442239633AA008BFC2B /* User.swift in Sources */,
 				F80A543E2395DC3F008BFC2B /* DetailViewController.swift in Sources */,
 				F8A1F619238DCFAD00F8C79C /* ViewController.swift in Sources */,
+				F828706723982D1E005FE9B2 /* ConcertDetails.swift in Sources */,
 				F8A1F617238DCFAD00F8C79C /* AppDelegate.swift in Sources */,
 				F80A544C23972BFF008BFC2B /* EventDataStructs.swift in Sources */,
 				F80A54442396EF64008BFC2B /* HomeTableViewController.swift in Sources */,

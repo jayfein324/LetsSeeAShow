@@ -29,8 +29,8 @@ class ViewController: UIViewController {
             if let userDicts = snapshot.value as? [String: [String : Any]] {
                 for eachUser in userDicts {
                     let dictValue = eachUser.value
-                    if let name = dictValue["name"] as? String, let email = dictValue["email"] as? String, let age = dictValue["age"] as? Int, let details = dictValue["details"] as? String, let id = eachUser.key as? String {
-                        newUsers.append(User(name: name, email: email, id: id, details: details, age: age))
+                    if let name = dictValue["name"] as? String, let email = dictValue["email"] as? String, let id = eachUser.key as? String {
+                        newUsers.append(User(name: name, email: email, id: id))
                     }
                 }
             }
@@ -69,8 +69,6 @@ class ViewController: UIViewController {
             "name" : name,
             "email" : email,
             "id" : id!,
-            "age" : 0,
-            "details" : ""
         ]
         
         newUserRef.setValue(newUserDictionary)

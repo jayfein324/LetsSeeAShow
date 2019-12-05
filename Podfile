@@ -10,6 +10,7 @@ target 'LetsSeeAShow' do
     pod 'FirebaseUI/Email'
     pod 'Firebase/Storage'
     pod 'Firebase/Database'
+    pod 'Kingfisher', '~> 5.0'
   target 'LetsSeeAShowTests' do
     inherit! :search_paths
     # Pods for testing

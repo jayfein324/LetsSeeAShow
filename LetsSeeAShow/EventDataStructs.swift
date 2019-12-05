@@ -36,6 +36,7 @@ struct Genre : Codable {
 }
 
 struct Venue : Codable {
+    let name : String
     let display_location : String
     let location : Location
 }
