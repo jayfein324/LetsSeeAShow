@@ -12,7 +12,8 @@ import Kingfisher
 import Firebase
 import FirebaseUI
 
-class ConcertDetails: UIViewController {
+class ConcertDetails: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
 
     let ref = Database.database().reference()
     
@@ -22,6 +23,7 @@ class ConcertDetails: UIViewController {
     @IBOutlet weak var concertTime: UILabel!
     @IBOutlet weak var concertPrice: UILabel!
     @IBOutlet weak var goingButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     
     var selectedEvent : Event!
     var usersGoing = [String]()
@@ -29,6 +31,8 @@ class ConcertDetails: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         if let image = selectedEvent.performers[0].image {
             let url = URL(string: image)
             concertImage.kf.setImage(with: url)
@@ -104,8 +108,20 @@ class ConcertDetails: UIViewController {
                 children.append(newUserComplete)
             }
             self.userObjectsGoing = children.filter {self.usersGoing.contains($0.id)}
+            self.tableView.reloadData()
             print(self.userObjectsGoing)
         })
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userObjectsGoing.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as! UITableViewCell
+        cell.textLabel?.text = userObjectsGoing[indexPath.row].name
+        cell.detailTextLabel?.text = "Age: " + String(userObjectsGoing[indexPath.row].age)
+        return cell
+    }
 }
+
