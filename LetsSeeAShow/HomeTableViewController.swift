@@ -10,16 +10,18 @@ import UIKit
 import Kingfisher
 import FirebaseUI
 import Firebase
+import CoreLocation
 
 class HomeTableViewController: UITableViewController {
     
     let ref = Database.database().reference()
-    
     var events = [Event]()
     
     let endpoint = "https://api.seatgeek.com/2/events?client_id=MTQ3OTM2NjB8MTU3NTQwMjI4OC45Mw&type.name=concert&lat=39.952583&lon=-75.165222&range=30mi&sort=score.desc&per_page=100"
-
+    
     override func viewDidLoad() {
+        configureRefreshControl()
+        self.refreshControl?.beginRefreshing()
         super.viewDidLoad()
         makeApiRequest()
     }
@@ -27,12 +29,10 @@ class HomeTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return events.count
     }
 
@@ -45,17 +45,18 @@ class HomeTableViewController: UITableViewController {
         }
         
         cell.title.text = events[indexPath.row].short_title
-        let date = events[indexPath.row].datetime_local
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        let yourDate = formatter.date(from: date)
-        formatter.dateFormat = "dd-MMM-yyyy  HH:mm"
-        let myDateString = formatter.string(from: yourDate!)
-        cell.date.text = myDateString
+        cell.date.text = dateFormat(date: events[indexPath.row].datetime_local)
 
         return cell
     }
 
+    func dateFormat(date : String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        let yourDate = formatter.date(from: date)
+        formatter.dateFormat = "MMM d, yyyy  h:mm a"
+        return formatter.string(from: yourDate!)
+    }
     
     @objc private func makeApiRequest() {
         let url = URL(string: endpoint)! //can I force unwrap this?
@@ -105,15 +106,12 @@ class HomeTableViewController: UITableViewController {
         }
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func configureRefreshControl () {
+        // Add the refresh control to your UIScrollView object.
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action:
+            #selector(makeApiRequest),
+                                       for: .valueChanged)
     }
-    */
 
 }

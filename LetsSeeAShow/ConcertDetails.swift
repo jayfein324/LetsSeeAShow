@@ -41,7 +41,7 @@ class ConcertDetails: UIViewController, UITableViewDelegate, UITableViewDataSour
         concertTime.text = dateFormat(date : selectedEvent.datetime_local)
         concertTitle.text = selectedEvent.short_title
         concertVenueAndLoc.text = selectedEvent.venue.name
-        concertPrice.text = "Ave price: " + String(selectedEvent.stats.median_price)
+        concertPrice.text = "Ave price: $" + String(selectedEvent.stats.median_price)
         updateUsersGoing {
             if self.usersGoing.contains(Auth.auth().currentUser!.uid) {
                 self.goingButton.setTitle("I'm Not Going", for : .normal)
@@ -57,8 +57,9 @@ class ConcertDetails: UIViewController, UITableViewDelegate, UITableViewDataSour
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         let yourDate = formatter.date(from: date)
-        formatter.dateFormat = "dd-MMM-yyyy  HH:mm"
+        formatter.dateFormat = "MMM d, yyyy  h:mm a"
         return formatter.string(from: yourDate!)
+
     }
     
     @IBAction func goingPressed(_ sender: UIButton) {
@@ -109,7 +110,6 @@ class ConcertDetails: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             self.userObjectsGoing = children.filter {self.usersGoing.contains($0.id)}
             self.tableView.reloadData()
-            print(self.userObjectsGoing)
         })
     }
     
@@ -122,6 +122,13 @@ class ConcertDetails: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.textLabel?.text = userObjectsGoing[indexPath.row].name
         cell.detailTextLabel?.text = "Age: " + String(userObjectsGoing[indexPath.row].age)
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toUserDetail" {
+            let vc = segue.destination as? UserDetail
+            vc?.selectedUser = userObjectsGoing[self.tableView.indexPathForSelectedRow!.row]
+        }
     }
 }
 
