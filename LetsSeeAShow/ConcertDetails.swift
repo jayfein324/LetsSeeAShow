@@ -24,6 +24,7 @@ class ConcertDetails: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var concertPrice: UILabel!
     @IBOutlet weak var goingButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var buyTickets: UITextView!
     
     var selectedEvent : Event!
     var usersGoing = [String]()
@@ -42,6 +43,7 @@ class ConcertDetails: UIViewController, UITableViewDelegate, UITableViewDataSour
         concertTitle.text = selectedEvent.short_title
         concertVenueAndLoc.text = selectedEvent.venue.name
         concertPrice.text = "Ave price: $" + String(selectedEvent.stats.median_price)
+        updateTextView()
         updateUsersGoing {
             if self.usersGoing.contains(Auth.auth().currentUser!.uid) {
                 self.goingButton.setTitle("I'm Not Going", for : .normal)
@@ -51,6 +53,13 @@ class ConcertDetails: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.goingButton.backgroundColor = .green
             }
         }
+    }
+    
+    func updateTextView() {
+        let path = self.selectedEvent.url
+        let text = "Buy Tickets"
+        let attributedString = NSAttributedString.makeHyperLink(for: path, in: text, as: text)
+        buyTickets.attributedText = attributedString
     }
     
     func dateFormat(date : String) -> String {
