@@ -13,7 +13,7 @@ import Firebase
 class DetailViewController: UIViewController {
 
     var ref = Database.database().reference()
-
+    
     @IBOutlet weak var age: UITextField!
     @IBOutlet weak var details: UITextField!
     @IBOutlet weak var number: UITextField!

@@ -10,13 +10,12 @@ import UIKit
 import Kingfisher
 import FirebaseUI
 import Firebase
-import CoreLocation
 
 class HomeTableViewController: UITableViewController {
     
     let ref = Database.database().reference()
     var events = [Event]()
-    
+ 
     let endpoint = "https://api.seatgeek.com/2/events?client_id=MTQ3OTM2NjB8MTU3NTQwMjI4OC45Mw&type.name=concert&lat=39.952583&lon=-75.165222&range=30mi&sort=score.desc&per_page=100"
     
     override func viewDidLoad() {
